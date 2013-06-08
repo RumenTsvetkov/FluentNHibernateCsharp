@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02478682-BE4D-4479-86F2-5374163A0C01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WAppFluentNhibernate.Db</RootNamespace>
+    <AssemblyName>WAppFluentNhibernate.Db</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\packages\FluentMigrator.1.1.0.0\lib\40\FluentMigrator.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\Repository.cs" />
+    <Compile Include="Connection\Connection.cs" />
+    <Compile Include="Interface\IConnection.cs" />
+    <Compile Include="Interface\IDal.cs" />
+    <Compile Include="Poco\Autor.cs" />
+    <Compile Include="Poco\Cliente.cs" />
+    <Compile Include="Poco\Gente.cs" />
+    <Compile Include="Poco\GenteFisica.cs" />
+    <Compile Include="Poco\GenteJuridica.cs" />
+    <Compile Include="Poco\Livro.cs" />
+    <Compile Include="Poco\Map\AutorMap.cs" />
+    <Compile Include="Poco\Map\ClienteMap.cs" />
+    <Compile Include="Poco\Map\GenteFisicaMap.cs" />
+    <Compile Include="Poco\Map\GenteJuridicaMap.cs" />
+    <Compile Include="Poco\Map\GenteMap.cs" />
+    <Compile Include="Poco\Map\LivroMap.cs" />
+    <Compile Include="Poco\Map\TelefoneMap.cs" />
+    <Compile Include="Poco\Telefone.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryAutor.cs" />
+    <Compile Include="RepositoryCliente.cs" />
+    <Compile Include="RepositoryGenteFisica.cs" />
+    <Compile Include="RepositoryGenteJuridica.cs" />
+    <Compile Include="RepositoryLivro.cs" />
+    <Compile Include="RepositoryTelefone.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Poco\Map\Link.Mapeamento.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
