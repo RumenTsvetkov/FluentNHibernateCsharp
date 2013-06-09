@@ -1,1 +1,7 @@
 FLUENT NHIBERNATE
+
+Galera com vários teste descobri diferenças entre campos to tipo TimeSpan, 
+no Mysql tem que se usar BigInt e no SQLServer tem que ser Time(7) com o 
+CustomType("TimeAsTimeSpan"), ou seja, na sua classe pode ser TimeSpan mas, 
+nas configurações e nos SGBD tem essas particulariedades... 
+Bom Foi Testando com êxito nos SGBD Mysql e SQLServer ...
