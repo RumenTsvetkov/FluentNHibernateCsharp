@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAppFluentNhibernate", "WAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAppFluentNhibernate.Db", "WAppFluentNhibernate.Db\WAppFluentNhibernate.Db.csproj", "{02478682-BE4D-4479-86F2-5374163A0C01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAppFluentNhibernate.SQLServer", "WAppFluentNhibernate.SQLServer\WAppFluentNhibernate.SQLServer.csproj", "{2283A916-DC48-4787-B9BD-70BAA56EA50E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{02478682-BE4D-4479-86F2-5374163A0C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02478682-BE4D-4479-86F2-5374163A0C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02478682-BE4D-4479-86F2-5374163A0C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2283A916-DC48-4787-B9BD-70BAA56EA50E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2283A916-DC48-4787-B9BD-70BAA56EA50E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2283A916-DC48-4787-B9BD-70BAA56EA50E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2283A916-DC48-4787-B9BD-70BAA56EA50E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

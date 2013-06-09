@@ -25,21 +25,21 @@ namespace WAppFluentNhibernate
         {
             try{
 
-                Connection Conexao = new Connection();
-                Conexao.Open();
+                //Connection Conexao = new Connection();
+                //Conexao.Open();
 
-                Cliente cliente = new Cliente();
-                cliente.Nome = "Teste 1";
-                cliente.Valor = 100;
-                cliente.Data = DateTime.Now;
-                cliente.Hora = DateTime.Now.TimeOfDay;
-                cliente.Status = true;
+                //Cliente cliente = new Cliente();
+                //cliente.Nome = "Teste 100";
+                //cliente.Valor = 100.69M;
+                //cliente.Data = DateTime.Now;
+                //cliente.Hora = TimeSpan.Parse("13:40:1");
+                //cliente.Status = true;
 
-                Conexao.Session.Transaction.Begin();
-                Conexao.Session.Merge(cliente);
-                Conexao.Session.Transaction.Commit();
+                //Conexao.Session.Transaction.Begin();
+                //Conexao.Session.Merge(cliente);
+                //Conexao.Session.Transaction.Commit();
 
-                Conexao.Dispose();
+                //Conexao.Dispose();
 
 
             }
@@ -70,9 +70,11 @@ namespace WAppFluentNhibernate
                     IQueryable<Cliente> Clientes = RepCliente.Query();
                     if (Clientes != null)
                     {
-                        dataGridView1.DataSource = Clientes.Select(x => new { x.Codigo, x.Nome }).ToList();
+                        TimeSpan TimeS = TimeSpan.Parse("13:40:1");
+                        dataGridView1.DataSource = Clientes.Where(g=>g.Hora >= TimeS).Select(x => new { x.Codigo, x.Nome }).ToList();
                         dataGridView1.Update();
                         Clientes = null;
+                        label1.Text = "Carregado com êxito";
                     }
                     else label1.Text = "Error";
                 }
