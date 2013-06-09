@@ -39,13 +39,13 @@ namespace WAppFluentNhibernate.Db.Connection
 
         private void Init()
         {
-            _configuration = Fluently.Configure()
+            _configuration = Fluently.Configure()                
             .Database(MySQLConfiguration.Standard.ConnectionString(x => x
                                                                      .Server("localhost")
                                                                      .Username("root")
                                                                      .Password("senha")
                                                                      .Database("apphibernate")))
-            .Mappings(c => c.FluentMappings.AddFromAssemblyOf<WAppFluentNhibernate.Db.Poco.Cliente>());
+            .Mappings(c => c.FluentMappings.AddFromAssemblyOf<WAppFluentNhibernate.Db.Poco.Cliente>());            
             _sessiofactory = _configuration.BuildSessionFactory();
             _session = _sessiofactory.OpenSession();
         }

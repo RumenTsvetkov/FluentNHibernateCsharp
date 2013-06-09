@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace WAppFluentNhibernate.Db.Abstract
@@ -56,10 +57,23 @@ namespace WAppFluentNhibernate.Db.Abstract
         {
             return (T)this._connection.Session.Get<T>(Key);
         }
-
+        
         public IQueryable<T> Query()
         {
-            return this._connection.Session.CreateCriteria<T>().List<T>().AsQueryable<T>();
+            try
+            {
+                return this._connection.Session.CreateCriteria<T>().List<T>().AsQueryable();
+            }
+            catch (NHibernate.ADOException ex)
+            {
+                var er = ex.Data;
+            }
+            return null;
+        }
+
+        public IQueryable<T> Query(Expression<Func<T,bool>> Where)
+        {
+            return this._connection.Session.CreateCriteria<T>().List<T>().AsQueryable<T>().Where<T>(Where);
         }
 
         public void Dispose()

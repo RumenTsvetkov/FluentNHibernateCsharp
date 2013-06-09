@@ -13,7 +13,8 @@ namespace WAppFluentNhibernate.Db.Interface
         void Edit(T model);
         void AddorEdit(T model);
         void Remove(T model);        
-        T Find(object Key);
+        T Find(object Key);        
         IQueryable<T> Query();
+        IQueryable<T> Query(Expression<Func<T, bool>> Where);
     }
 }

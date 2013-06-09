@@ -1,0 +1,7 @@
+Error dehydrating property value for
+http://stackoverflow.com/questions/5838496/version-as-timestamp-in-fluent-nhibernate-sql-server
+http://www.mail-archive.com/fluent-nhibernate@googlegroups.com/msg04356.html
+http://stackoverflow.com/questions/2297115/using-time-columns-with-nhibernate-fluent-nhibernate-and-sql-server-2008
+http://nhforge.org/blogs/nhibernate/archive/2009/03/11/nhibernate-and-ms-sql-server-2008-date-time-datetime2-and-datetimeoffset.aspx
+http://jarrettmeyer.com/post/887417952/using-sql-server-timestamps-with-fluent-nhibernate
+https://github.com/jagregory/fluent-nhibernate/wiki/Getting-started

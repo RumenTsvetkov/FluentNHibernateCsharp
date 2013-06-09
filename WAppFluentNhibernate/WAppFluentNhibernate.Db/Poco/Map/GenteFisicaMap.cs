@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WAppFluentNhibernate.Db.Poco.Map
 {
-    public class GenteFisicaMap: SubclassMap<GenteFisica>
+    public class GenteFisicaMap : SubclassMap<GenteFisica>
     {
         public GenteFisicaMap()
         {

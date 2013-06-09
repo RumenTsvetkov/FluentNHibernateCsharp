@@ -18,7 +18,8 @@ namespace WAppFluentNhibernate.Db.Poco.Map
                 .ChildKeyColumn("livroid")
                 .Table("autorlivro")
                 .LazyLoad()
-                .Cascade.Merge();                
+                .Cascade.Merge();   
+             
         }
     }
 }

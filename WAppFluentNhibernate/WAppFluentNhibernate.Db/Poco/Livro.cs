@@ -15,4 +15,5 @@ namespace WAppFluentNhibernate.Db.Poco
         public virtual string Titulo { get; set; }
         public virtual IList<Autor> Autor { get; set; }
     }
+
 }

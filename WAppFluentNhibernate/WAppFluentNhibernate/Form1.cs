@@ -23,33 +23,38 @@ namespace WAppFluentNhibernate
         private delegate void CarregarGrid();
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                using (Repository<Livro> dallivro = new RepositoryLivro())
-                {
-                    Repository<Autor> dalautor = new RepositoryAutor(dallivro.Connection);
+            try{
 
-                    Livro livro = dallivro.Find(2);
-                    Autor autor = dalautor.Find(1);
+                Connection Conexao = new Connection();
+                Conexao.Open();
 
-                    //autor.Livro.Add(livro);
+                Cliente cliente = new Cliente();
+                cliente.Nome = "Teste 1";
+                cliente.Valor = 100;
+                cliente.Data = DateTime.Now;
+                cliente.Hora = DateTime.Now.TimeOfDay;
+                cliente.Status = true;
 
-                    //dalautor.Edit(autor);
+                Conexao.Session.Transaction.Begin();
+                Conexao.Session.Merge(cliente);
+                Conexao.Session.Transaction.Commit();
 
-                }
+                Conexao.Dispose();
+
+
             }
             catch (Exception ex)
             {
-                this.Text = ex.Message;
+                label1.Text = ex.Message;
             }
 
 
-            return;
-            //Task TaskLoad = new Task(() =>
-            //{
-            //    Carregar_Grid();
-            //});
-            //TaskLoad.Start();
+            //return;
+            Task TaskLoad = new Task(() =>
+            {
+                Carregar_Grid();
+            });
+            TaskLoad.Start();
         }
         public void Carregar_Grid()
         {
@@ -63,9 +68,13 @@ namespace WAppFluentNhibernate
                 using (Repository<Cliente> RepCliente = new RepositoryCliente())
                 {
                     IQueryable<Cliente> Clientes = RepCliente.Query();
-                    dataGridView1.DataSource = Clientes.Select(x => new { x.Codigo, x.Nome }).ToList();
-                    dataGridView1.Update();
-                    Clientes = null;                    
+                    if (Clientes != null)
+                    {
+                        dataGridView1.DataSource = Clientes.Select(x => new { x.Codigo, x.Nome }).ToList();
+                        dataGridView1.Update();
+                        Clientes = null;
+                    }
+                    else label1.Text = "Error";
                 }
             }
         }
